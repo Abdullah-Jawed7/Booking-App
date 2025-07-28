@@ -4,6 +4,7 @@ import Navbar from "../../components/navbar/Navbar.jsx";
 import { useLocation } from "react-router";
 import { DateRange } from "react-date-range";
 import { format } from "date-fns";
+import SearchItem from "../../components/searchItem/SearchItem.jsx";
 
 function List() {
   const location = useLocation();
@@ -17,7 +18,7 @@ function List() {
       <Header type="list" />
       <div className="flex justify-center mt-5">
         <div className="w-full max-w-5xl flex gap-5">
-          <div className="flex-1 bg-[#febb02] p-2.5 rounded-xl sticky top-2.5 ">
+          <div className="flex-1 bg-[#febb02] p-2.5 rounded-xl sticky top-2.5 h-max  ">
             <h1 className="text-xl text-[#555] mb-2.5">Search</h1>
             <div className="flex flex-col gap-1 mb-2.5">
               <label className="text-sm">Destination</label>
@@ -75,7 +76,14 @@ function List() {
             </div>
           <button className="p-2.5 bg-[#0071c2] text-white border-none w-full font-medium cursor-pointer ">Search</button>
           </div>
-          <div className="flex-grow-[3] shrink basis-0"></div>
+          <div className="flex-grow-[3] shrink basis-0">
+            <SearchItem/>
+            <SearchItem/>
+            <SearchItem/>
+            <SearchItem/>
+            <SearchItem/>
+            <SearchItem/>
+          </div>
         </div>
       </div>
     </div>
