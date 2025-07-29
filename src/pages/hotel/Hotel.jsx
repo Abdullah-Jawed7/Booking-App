@@ -69,7 +69,7 @@ setSlideNumber(newSlideNumber)
       <Header type={"list"} />
       <div className="hotelContainer flex flex-col items-center justify-center mt-5">
         {open && (
-          <div className="slider sticky top-0 left-0 w-screen h-screen bg-black z-30 flex items-center">
+          <div className="slider sticky top-0 left-0 w-screen h-screen bg-transparent- z-30 flex items-center">
             <FontAwesomeIcon
               onClick={() => setOpen(false)}
               icon={faCircleXmark}
