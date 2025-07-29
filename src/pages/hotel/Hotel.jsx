@@ -4,8 +4,10 @@ import Navbar from "../../components/navbar/Navbar.jsx"
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons"
 import MailList from "../../components/mailList/MailList.jsx"
 import Footer from "../../components/footer/Footer.jsx"
-
+import {useState} from "react"
 function Hotel() {
+  const [slideNumber , setSlideNumber] = useState(0)
+  const [open , setOpen] = useState(false)
   const photos = [
     {src:"https://cf.bstatic.com/xdata/images/hotel/max1024x768/612966938.jpg?k=6360257ba784391efd0055d1f3595b1f6335f564a8ab758869919cef1242a1da&o="},
     {src:"https://cf.bstatic.com/xdata/images/hotel/max1024x768/612966938.jpg?k=6360257ba784391efd0055d1f3595b1f6335f564a8ab758869919cef1242a1da&o="},
@@ -15,11 +17,17 @@ function Hotel() {
     {src:"https://cf.bstatic.com/xdata/images/hotel/max1024x768/612966938.jpg?k=6360257ba784391efd0055d1f3595b1f6335f564a8ab758869919cef1242a1da&o="},
 
   ]
+
+  const handleOpen = (i)=>{
+    setSlideNumber(i);
+    setOpen(true)
+  }
   return (
     <div>
       <Navbar/>
       <Header type={"list"}/>
       <div className="hotelContainer flex justify-center mt-5">
+       {open && <div className="slider"></div>}
         <div className="hotelWrapper w-full max-w-5xl flex flex-col justify-center gap-2.5 relative">
           <button className="absolute top-2.5 right-0 border-none py-2.5 px-5 bg-[#0071c2] text-white font-bold rounded-sm cursor-pointer">Reserve or Book Now!</button>
           <div className="hotelTitle text-2xl font-bold">Grand Hotel</div>
@@ -35,9 +43,9 @@ function Hotel() {
           </span>
           
           <div className="hotelImages flex flex-wrap justify-between ">
-            {photos?.map((photo) => (
+            {photos?.map((photo , i) => (
               <div className="hotelImgWrapper w-1/3 p-1 ">
-                <img src={photo.src} alt="" className="hotelImg w-full object-cover" />
+                <img onClick={()=> handleOpen(i)} src={photo.src} alt="" className="hotelImg w-full object-cover" />
               </div>
           ))}
           </div>
